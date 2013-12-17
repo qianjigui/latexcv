@@ -1,0 +1,58 @@
+%-----------------------------------------------------------
+%Language Support
+%en/cn
+\usepackage{ifthen}
+\newcommand{\setLanguageValues}[3][en]
+{
+  \ifthenelse{\equal{#1}{en}}{#2}{}
+  \ifthenelse{\equal{#1}{cn}}{#3}{}
+}
+
+\setLanguageValues[\nowLanguage]{
+
+% Personal Information
+\newcommand{\personName}{Pengcheng Wang}
+\newcommand{\personEmail}{wpc0000@gmail.com, pengcheng.wang4@mail.dcu.ie}
+\newcommand{\personBirth}{November 14, 1987}
+\newcommand{\personDegree}{MTC @ DCU}
+\newcommand{\personLocation}{430 Collins Avenue, Whitehall, Dublin 9}
+\newcommand{\personMobile}{+353-87-1703792}
+
+% Local value Setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\awardsHeading}{Awards, Grants \& Honours}
+\newcommand{\personHeading}{Personal}
+\newcommand{\educationHeading}{Education}
+\newcommand{\workHeading}{Work Experience}
+\newcommand{\skillHeading}{Skills}
+\newcommand{\selfProject}{My Projects}
+\newcommand{\schoolProject}{School Projects}
+\newcommand{\interestHeading}{Interests}
+\newcommand{\refereeHeading}{Referees}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+}{
+% Personal Information
+\newcommand{\personName}{王鹏程}
+\newcommand{\personEmail}{wpc0000@gmail.com}
+%\newcommand{\personBirth}{身份证: 420602198711140019}
+\newcommand{\personBirth}{http://code.google.com/p/qjg-wiki/}
+\newcommand{\personDegree}{都柏林城市大学通信工程专业网络通信方向硕士}
+\newcommand{\personLocation}{武汉大学国际软件学院软件工程学士}
+\newcommand{\personMobile}{+86-18671090925}
+
+% Local value Setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\awardsHeading}{获奖情况}
+\newcommand{\personHeading}{个人鉴定}
+\newcommand{\educationHeading}{学历}
+\newcommand{\workHeading}{工作经验}
+\newcommand{\skillHeading}{技能}
+\newcommand{\selfProject}{自己维护的项目}
+\newcommand{\schoolProject}{学校项目}
+\newcommand{\interestHeading}{兴趣爱好}
+\newcommand{\refereeHeading}{其他}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+}
+

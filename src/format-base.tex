@@ -1,0 +1,175 @@
+\newlength{\outerbordwidth}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\usepackage[svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{tocloft}
+
+% Set link in the document
+\usepackage{hyperref}
+\hypersetup{colorlinks,%
+            citecolor=blue,%
+            filecolor=black,%
+            linkcolor=red,%
+            urlcolor=blue,%
+            pdfauthor={\personName(\personEmail)},
+            pdftitle={\personName's CV},
+            pdfsubject={CV},
+            pdfkeywords={CV, IT, WPC},
+            pdftex
+}
+
+\let \oldhref \href
+\renewcommand{\href}[2]{
+  \oldhref{#1}{#2:#1}
+}
+
+% Support Chinese
+\usepackage[slantfont,boldfont,CJKnumber,CJKtextspaces]{xeCJK} % 加载 xeCJK，允许斜体、粗体和 CJK 数字以及 CJK 对空格的设置
+\setCJKmainfont[BoldFont={Adobe Heiti Std}, ItalicFont={Adobe Kaiti Std}]{Adobe Song Std} %中文缺省字体
+\setCJKsansfont{Adobe Song Std} %中文无衬线字体
+\setCJKmonofont{Adobe Fangsong Std} %中文等宽字体
+
+
+%-----------------------------------------------------------
+%Edit these values as you see fit
+
+\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
+\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
+\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
+
+%-----------------------------------------------------------
+%Margin setup
+
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+
+% Person Environment
+\newenvironment{person}[0]{
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \resheading{\personHeading}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \begin{center}
+}
+{
+  \end{center}
+}
+% For Personal items
+\newcommand{\personItem}[1]{
+  \parbox{6.762in}{#1}
+}
+
+% Education Environment
+\newenvironment{education}[0]{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{\educationHeading}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+}
+{
+\end{itemize}
+}
+% Education Item
+% 1st: university name
+% 2nd: location
+% 3td: profession
+% 4th: time
+% 5th: items
+\newcommand{\educationItem}[5]{
+\item
+  \ressubheading{#1}{#2}{#3}{#4}
+  \begin{itemize}
+    #5
+  \end{itemize}
+}
+
+% Work Environment
+\newenvironment{works}[1][\workHeading]{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{#1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+}
+{
+\end{itemize}
+}
+% Item
+% 1: Company name
+% 2: Location
+% 3: position
+% 4: Time
+% 5: resitems
+\newcommand{\workItem}[5]{
+\item
+  \ressubheading{#1}{#2}{#3}{#4}
+  \begin{itemize}
+    #5
+  \end{itemize}
+}
+
+%Skills Environment
+\newenvironment{skills}[0]{
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \resheading{\skillHeading}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \begin{itemize}
+}
+{
+  \end{itemize}
+}
+\newcommand{\skillItem}[2]{
+  \item
+    #1
+    \begin{itemize}
+      #2
+    \end{itemize}
+}
+
+%Interests
+\newenvironment{interests}[0]{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{\interestHeading}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+}
+{
+\end{itemize}
+}
+% Item
+% 1: Area
+% 2: Items
+\newcommand{\interestItem}[2]{
+  \item{
+    {\bf #1:}#2
+  }
+}
+
+%Referees
+\newenvironment{referees}[0]{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{\refereeHeading}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+}
+{
+\end{itemize}
+}
+% Item
+\newcommand{\refereeItem}[2]{
+  \item{
+    \href{#1}{#2}
+  }
+}
+%-----------------------------------------------------------
