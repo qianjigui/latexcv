@@ -1,0 +1,43 @@
+%Format, word
+
+%--------------------------doc----------------------------
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resheading}[1]{\vspace{8pt}
+  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+    \huge \textbf{#1}
+  }\vspace{-5pt}
+}
+\newcommand{\ressubheading}[4]{
+\large \textbf{#1}(#2)\\
+\textit{#3}(\textit{#4})
+\vspace{-6pt}}
+
+%Basic Part
+\newcommand{\basicPart}[6]{
+\resheading{Basic Information}
+\begin{description}
+  \item[Name:]     #1
+  \item[Degree:]   #3
+  \item[Moblie:]   #6
+  \item[Email:]    #4
+  \item[Birthday:] #2
+  \item[Location:] #5
+\end{description}
+}
+
+% Awards Environment
+\newenvironment{awards}[0]{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{\awardsHeading}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \vspace{-2pt}
+  \begin{itemize}
+}
+{
+  \end{itemize}
+  \vspace*{-16pt}
+}
+% For the awards, 1st: item-details, 2nd: time(year)
+\newcommand{\awardsItem}[2]{
+ \item #1(#2)
+}
